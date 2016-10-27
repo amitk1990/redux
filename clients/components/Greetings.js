@@ -1,7 +1,13 @@
 import React from 'react';
 
-export default () => {
-  return (
-      <div>Hello to React Hot Loader !!!</div>
-    );
+class Greetings extends React.Component {
+  render() {
+    return (
+        <div className="container">
+          Hello to React Hot Loader !!!
+        </div>
+      );
+  }
 }
+
+export default Greetings;
