@@ -22,6 +22,7 @@ export default {
       {
         test: /\.js$/,
         path: path.join(__dirname, 'clients'),
+        exclude: /node_modules/,
         loaders:['babel']
       }
     ]
