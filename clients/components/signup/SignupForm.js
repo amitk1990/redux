@@ -20,6 +20,7 @@ class SignupForm extends React.Component {
 
   onSubmit(e) {
     e.preventDefault();
+    this.props.userSignupRequest(this.state);
   }
 
   onChange(e) {
@@ -33,7 +34,7 @@ class SignupForm extends React.Component {
         return <option key={value} value={value}>{index}</option>
     });
     return (
-        <form>
+        <form name="sing-up" onSubmit={this.onSubmit}>
           <h1>Join our community</h1>
           <div className="form-group">
             <label className="control-label">Username</label>
@@ -78,7 +79,7 @@ class SignupForm extends React.Component {
           <div className="form-group">
             <label className="control-label">Timezone Selection</label>
             <select name="timezone" onChange={this.onChange}>
-            <option value="notSelected" key="notSelect" disabled selected>Choose the Timezone</option>
+            <option value="notSelected" key="notSelect" disabled>Choose the Timezone</option>
                 {dropdown}
             </select>
           </div>
@@ -91,5 +92,9 @@ class SignupForm extends React.Component {
       );
   }
 }
+
+SignupForm.propTypes = {
+  userSignupRequest: React.PropTypes.func.isRequired,
+};
 
 export default SignupForm;
